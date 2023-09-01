@@ -82,7 +82,7 @@ export const appRouter =(app , express) =>{
       // order
       app.use("/order" ,orderRouter )
 
-    app.all("*" ,(req , res , next ) =>{
+    app.all("/" ,(req , res , next ) =>{
         return next(new Error ('Page not found !' , {cause : 404}))
     })
 
