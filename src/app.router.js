@@ -82,12 +82,9 @@ export const appRouter =(app , express) =>{
       // order
       app.use("/order" ,orderRouter )
 
-    app.all("/" ,(req , res , next ) =>{
+    app.all("*" ,(req , res , next ) =>{
         return next(new Error ('Page not found !' , {cause : 404}))
     })
 
-    //global error handeler
-    // app.use((error , req , res , next) =>{
-    //     return res.status(error.cause || 500).json({success:false , message :error.message , stack:error.stack})
-    // })
+ 
 }
