@@ -83,7 +83,8 @@ export const appRouter =(app , express) =>{
       app.use("/order" ,orderRouter )
 
     app.all("*" ,(req , res , next ) =>{
-        return next(new Error ('Page not found !' , {cause : 404}))
+        // return next(new Error ('Page not found !' , {cause : 404}))
+        res.json({message:"Page Not Found !"})
     })
 
  
