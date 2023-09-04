@@ -88,8 +88,8 @@ export const appRouter =(app , express) =>{
 
 
     app.all("*" ,(req , res , next ) =>{
-        // return next(new Error ('Page not found !' , {cause : 404}))
-        res.json({message:"Page Not Found !"})
+        return next(new Error ('Page not found !' , {cause : 404}))
+        // res.json({message:"Page Not Found !"})
     })
 
     app.use(globalErrorHandling)
