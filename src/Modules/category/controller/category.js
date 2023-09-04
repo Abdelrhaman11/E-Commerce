@@ -77,8 +77,10 @@ export const deleteCategory = asyncHandler(async(req, res,next) =>{
     const result = await cloudinary.uploader.destroy(category.image.id);
 
     //delete category
-   // await category.remove();
-   await categoryModel.findByIdAndDelete(req.params.categoryId)
+
+//    await category.remove()
+
+await categoryModel.findByIdAndDelete(req.params.categoryId)
 
    //delete subcategory
    await subcategoryModel.deleteMany({categoryId:req.params.categoryId})

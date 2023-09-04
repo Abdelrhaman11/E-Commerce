@@ -1,4 +1,5 @@
 import mongoose,{ Schema, model} from "mongoose"
+import bcryptjs from "bcryptjs"
 
 //schema
 const userSchema= new Schema({
@@ -52,6 +53,8 @@ const userSchema= new Schema({
         },
         coverImages : [{url : {type:String , required : true} , id:{type: String , required:true}}]
 },{timestamps:true})
+
+
 
 
 //Model

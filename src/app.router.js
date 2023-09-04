@@ -6,8 +6,10 @@ import couponRouter from './Modules/coupon/coupon.router.js'
 import cartRouter from './Modules/cart/cart.router.js'
 import productRouter from './Modules/product/product.router.js'
 import orderRouter from './Modules/order/order.router.js'
+import reviewRouter from './Modules/review/review.router.js'
 import morgan from 'morgan'
 import cors from "cors"
+import { globalErrorHandling } from './utils/asyncHandler.js'
 export const appRouter =(app , express) =>{
   // morgan
   //  if(process.env.NODE_ENV){
@@ -81,11 +83,16 @@ export const appRouter =(app , express) =>{
       app.use("/cart" , cartRouter)
       // order
       app.use("/order" ,orderRouter )
+      // review
+      app.use("/review" ,reviewRouter )
+
 
     app.all("*" ,(req , res , next ) =>{
         // return next(new Error ('Page not found !' , {cause : 404}))
         res.json({message:"Page Not Found !"})
     })
+
+    app.use(globalErrorHandling)
 
  
 }

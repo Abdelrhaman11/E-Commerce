@@ -207,8 +207,6 @@ if(event.type === 'checkout.session.completed')
 await orderModel.findOneAndUpdate({_id:orderId} , {status:"failed to pay"})
 return
 
-  // Return a 200 response to acknowledge receipt of the event
-  response.send();
 }
 
 )
