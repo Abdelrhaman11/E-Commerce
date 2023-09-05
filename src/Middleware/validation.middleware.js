@@ -17,9 +17,9 @@ export const isValidObjectId = (value , helper) =>{
 
 export const isValid = (schema) => {
  return(req,res,next)=>{
+  
     const copyReq = {...req.body , ...req.params , ...req.query}
     const validationResult = schema.validate(copyReq , {abortEarly: false})
-
     if (validationResult.error) {
         return res.json({message:"Validation Error" , validationError:validationResult.error.details})
 
